@@ -33,7 +33,7 @@ class MetroStationsViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationTableViewCell
+       let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationsTableViewCell
         
         let station = stations[indexPath.row]
         
@@ -49,6 +49,7 @@ class MetroStationsViewController: UITableViewController{
 extension MetroStationsViewController: FetchStationsDelegate{
     func stationsFound(_ stations: [Station]) {
         print("station found")
+        self.stations = stations
     }
     
     func stationsNotFound() {

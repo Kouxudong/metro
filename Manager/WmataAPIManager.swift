@@ -81,7 +81,6 @@ class WmataAPIManager {
                 }
                 
                 //now what do we do with the gyms????
-                print(stations)
                 
                 self.delegate?.stationsFound(stations)
                 
