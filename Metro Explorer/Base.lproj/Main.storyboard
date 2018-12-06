@@ -55,13 +55,16 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xbG-s1-Jd1" kind="show" id="sfO-gf-oKD"/>
+                                    <action selector="SelectPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncJ-29-i6e"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="xbG-s1-Jd1" kind="show" identifier="stationsSegue" id="1es-YZ-Smx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,7 +87,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRc-kR-WeH">
-                                            <rect key="frame" x="33" y="0.0" width="108" height="75"/>
+                                            <rect key="frame" x="16" y="-1" width="108" height="75"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
@@ -93,8 +96,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="StationLabel" destination="QRc-kR-WeH" id="Tnd-5G-Fsl"/>
-                                    <outlet property="s" destination="QRc-kR-WeH" id="u1T-gI-X1C"/>
+                                    <outlet property="StationLabel" destination="QRc-kR-WeH" id="D2r-ti-d80"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

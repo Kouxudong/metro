@@ -20,13 +20,10 @@ class MetroStationsViewController: UITableViewController{
    
     override func viewDidLoad(){
         super.viewDidLoad()
-        wmataapimanager.delegate = self as! FetchStationsDelegate
+        wmataapimanager.delegate = self as FetchStationsDelegate
         wmataapimanager.fetchStations()
     }
-    class StationTableViewCell: UITableViewCell{
-        @IBOutlet weak var StationLabel: UILabel!
-        
-    }
+   
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
