@@ -57,13 +57,13 @@ class WmataAPIManager {
             let decoder = JSONDecoder()
             
             do {
-                let wataResponse = try decoder.decode(WmataResponse.self, from: data)
+                let wmataResponse = try decoder.decode(WmataResponse.self, from: data)
                 
                 //HERE - decoding was successful
                 
                 var stations = [Station]()
                 
-                for station in wataResponse.response.stations
+                for station in wmataResponse.Stations
                 {
                     
                    /* let iconPrefix = venue.categories.first?.icon.prefix
@@ -75,7 +75,7 @@ class WmataAPIManager {
                         iconUrl = "\(iconPrefix)44\(iconSuffix)"
                     }
                     */
-                    let station = Station(name: station.name)
+                    let station = Station(name: station.Name)
                     
                     stations.append(station)
                 }

@@ -10,45 +10,34 @@ import Foundation
 
 struct WmataResponse: Codable {
     
-    let meta: Meta
-    let response: Response
-    
-}
-
-struct Meta: Codable {
-    
-    let code: Int
-    let requestId: String
-    
-}
-
-struct Response: Codable {
-    
-    let stations: [Stations]
+    let Stations: [Stations]
     
 }
 
 struct Stations: Codable {
     
-    
-    let name: String
-   /* let StationTogether1: String
-    let LineCode1: String
-    let Lat: Float
     let Code: String
-    let Lon: Float
-    let Address: [Address]*/
+    let Name: String
+    let StationTogether1: String
+    let StationTogether2: String
+    let LineCode1: String
+    let LineCode2: String?
+    let LineCode3: String?
+    let LineCode4: String?
+    
+    let Lat: Double
+    let Lon: Double
+    let Address: Address
     
 }
 
-/*struct Address: Codable {
+struct Address: Codable {
     
-    let Street: String?
+    let Street: String
     let City: String
     let State: String
-    let Zip: Int
-   
+    let Zip: String
     
-}*/
+}
 
 
