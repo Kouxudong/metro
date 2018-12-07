@@ -11,7 +11,7 @@ import UIKit
 
 class MetroStationsViewController: UITableViewController{
     let wmataapimanager = WmataAPIManager()
-    
+    let locationDetector = LocationDetector()
     var stations = [Station](){
         didSet{
             tableView.reloadData()
@@ -21,9 +21,13 @@ class MetroStationsViewController: UITableViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         wmataapimanager.delegate = self as FetchStationsDelegate
-        wmataapimanager.fetchStations()
+        locationDetector.delegate = self as LocationDetectorDelegate
+        fetchStation()
     }
-   
+    
+    private func fetchStation(){
+        locationDetector.findLocation()
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -45,16 +49,57 @@ class MetroStationsViewController: UITableViewController{
     }
     
 }
-
+extension MetroStationsViewController: LocationDetectorDelegate {
+    
+    func locationDetected(latitude: Double, longitude: Double) {
+        print("found")
+        wmataapimanager.fetchStations(longitude: longitude, latitude: latitude)
+        
+    }
+    
+    func locationNotDetected() {
+        print("no location found :(")
+        DispatchQueue.main.async {
+          //  MBProgressHUD.hide(for: self.view, animated: true)
+            
+            //TODO: Show a AlertController with error
+        }
+    }
+}
 extension MetroStationsViewController: FetchStationsDelegate{
+   
+    
     func stationsFound(_ stations: [Station]) {
         print("station found")
         self.stations = stations
     }
     
-    func stationsNotFound() {
-        print("station not found")
-    }
+    func stationsNotFound(reason: WmataAPIManager.FailureReason) {
+        DispatchQueue.main.async {
+            //MBProgressHUD.hide(for: self.view, animated: true)
+            
+            let alertController = UIAlertController(title: "Problem fetching gyms", message: reason.rawValue, preferredStyle: .alert)
+            
+            switch(reason) {
+            case .noResponse:
+                let retryAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) in
+                    self.fetchStation()
+                })
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler:nil)
+                
+                alertController.addAction(cancelAction)
+                alertController.addAction(retryAction)
+                
+            case .non200Response, .noData, .badData:
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler:nil)
+                
+                alertController.addAction(okayAction)
+            }
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
     
-    
+}
 }
