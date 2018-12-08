@@ -42,7 +42,8 @@ class MetroStationsViewController: UITableViewController{
         let station = stations[indexPath.row]
         
         cell.StationLabel.text = station.name
-        
+        cell.LaiLabel.text = String(station.Lat)
+        cell.LonLabel.text = String(station.Lon)
         
         
         return cell

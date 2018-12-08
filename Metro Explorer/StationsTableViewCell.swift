@@ -11,6 +11,11 @@ import UIKit
 class StationsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var StationLabel: UILabel!
+    
+    @IBOutlet weak var LonLabel: UILabel!
+    
+    
+    @IBOutlet weak var LaiLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

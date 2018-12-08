@@ -19,8 +19,13 @@ class MenuViewController: UIViewController {
     
     @IBAction func SelectPressed(_ sender: UIButton) {
         print("select pressed")
-        performSegue(withIdentifier: "stationsSegue", sender: self)    }
+        performSegue(withIdentifier: "stationsSegue", sender: self)
+        
+    }
     
-   
+    @IBAction func NearestPressed(_ sender: UIButton) {
+        print("select pressed")
+        performSegue(withIdentifier: "NearestStationsSegue", sender: self)    }
+    
 
 }
