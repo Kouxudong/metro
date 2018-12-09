@@ -10,8 +10,9 @@ import UIKit
 
 class LandmarksTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var LandmardsImage: UIImageView!
-    @IBOutlet weak var LandmarksLabel: UILabel!
+    @IBOutlet weak var LandmarkLabel: UILabel!
+    
+    @IBOutlet weak var LandmarkImgLabel: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

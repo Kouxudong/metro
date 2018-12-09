@@ -27,8 +27,8 @@ class FetchLandmarksManager {
         var urlComponents = URLComponents(string: "https://api.yelp.com/v3/businesses/search")!
         
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_secret", value: "W5yBocKSm1VFHOIB1zqj3Ovv0UNpN1_WM9jPScCoymBbdc6QDxhRfueAj4fdS7mT_J7jXwK4nyvt27r_gt8u3gDSkdsLyTQEfaU_dSxYinyG-aBF7n1wNQ3CWwMLXHYx"),
             
+            URLQueryItem(name: "query", value: "landmarks"),
             URLQueryItem(name: "ll", value: "\(latitude), \(longitude)"),
         ]
         
@@ -36,7 +36,8 @@ class FetchLandmarksManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
+        request.setValue("Bearer W5yBocKSm1VFHOIB1zqj3Ovv0UNpN1_WM9jPScCoymBbdc6QDxhRfueAj4fdS7mT_J7jXwK4nyvt27r_gt8u3gDSkdsLyTQEfaU_dSxYinyG-aBF7n1wNQ3CWwMLXHYx", forHTTPHeaderField: "Authorization")
+      
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             //PUT CODE HERE TO RUN UPON COMPLETION
             
@@ -55,7 +56,8 @@ class FetchLandmarksManager {
             
             //HERE - response is NOT nil and IS 200
             
-            guard let data = data else {
+            guard let data = data
+                else {
                 self.delegate?.landmarkNotFound(reason: .noData)
                 
                 return
@@ -68,20 +70,16 @@ class FetchLandmarksManager {
             do {
                 let landmarkResponse = try decoder.decode(LandmarkResponse.self, from: data)
                 
-                //HERE - decoding was successful
                 
                 var landmarks = [Landmark]()
                 
                 for landmark in landmarkResponse.businesses{
                     
                     
-                    
-                    
                     let landmark = Landmark(name: landmark.name,imageUrl: landmark.imageUrl)
                     landmarks.append(landmark)
                 }
                 print(landmarks)
-                //now what do we do with the gyms????
                 self.delegate?.landmarkFound(landmarks)
                 
             } catch let error {

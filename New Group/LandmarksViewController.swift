@@ -10,7 +10,7 @@ import UIKit
 
 class LandmarksViewController: UITableViewController {
     
-    let fetchLandmarks = FetchLandmarksManager()
+    let fetchLandmark = FetchLandmarksManager()
     var station : Station?
     var landmarks = [Landmark](){
         didSet{
@@ -20,9 +20,9 @@ class LandmarksViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchLandmarks.delegate = self
+        fetchLandmark.delegate = self
         if let lon = station?.lon,let lat = station?.lat{
-            fetchLandmarks.fetchLandMarks(latitude: lat, longitude: lon)
+            fetchLandmark.fetchLandMarks(latitude: lat, longitude: lon)
         }
     }
 
@@ -40,12 +40,11 @@ class LandmarksViewController: UITableViewController {
         
         let landmark = landmarks[indexPath.row]
         
-        cell.LandmarksLabel.text = landmark.name
-        //cell.gymAddressLabel.text = gym.address
+        cell.LandmarkLabel.text = landmark.name
         
        // if let iconUrlString = landmark.imageUrl, let url = URL(string: iconUrlString) {
-          //  cell.LandmardsImage.load(url: url)
-       // }
+           // cell.LandmardsImage.load(url: url)
+      //  }
         
         return cell
     }
@@ -63,7 +62,7 @@ extension LandmarksViewController: FetchLandMarksDelegate{
         DispatchQueue.main.async {
             //MBProgressHUD.hide(for: self.view, animated: true)
             
-            let alertController = UIAlertController(title: "Problem fetching gyms", message: reason.rawValue, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Problem fetching landmarks", message: reason.rawValue, preferredStyle: .alert)
             
             switch(reason) {
             case .noResponse:

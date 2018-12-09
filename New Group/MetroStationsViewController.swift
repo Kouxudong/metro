@@ -86,7 +86,6 @@ extension MetroStationsViewController: FetchStationsDelegate{
    
     
     func stationsFound(_ stations: [Station]) {
-        print("station found")
         self.stations = stations
     }
     
@@ -94,7 +93,7 @@ extension MetroStationsViewController: FetchStationsDelegate{
         DispatchQueue.main.async {
             //MBProgressHUD.hide(for: self.view, animated: true)
             
-            let alertController = UIAlertController(title: "Problem fetching gyms", message: reason.rawValue, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Problem fetching landmark", message: reason.rawValue, preferredStyle: .alert)
             
             switch(reason) {
             case .noResponse:
