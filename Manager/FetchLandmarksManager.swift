@@ -6,13 +6,14 @@
 //  Copyright © 2018 zkxd. All rights reserved.
 //
 
-/*import Foundation
+import Foundation
 
-protocol FetchGymsDelegate {
-    func landmarksFound(_ landmarks: [LandmarkResponse])
-    func gymsNotFound(reason: Fetch.FailureReason)
+protocol FetchLandMarksDelegate {
+    func landmarkFound(_ landmarks: [Landmark])
+    func landmarkNotFound(reason:FetchLandmarksManager.FailureReason)
 }
-class FourSquareAPIManager {
+
+class FetchLandmarksManager {
     
     enum FailureReason: String {
         case noResponse = "No response received" //allow the user to try again
@@ -20,9 +21,9 @@ class FourSquareAPIManager {
         case noData = "No data recieved" //give up
         case badData = "Bad data" //give up
     }
+    var delegate: FetchLandMarksDelegate?
     
-    
-    func getLandMarks(latitude: Double, longitude: Double) {
+    func fetchLandMarks(latitude: Double, longitude: Double) {
         var urlComponents = URLComponents(string: "https://api.yelp.com/v3/businesses/search")!
         
         urlComponents.queryItems = [
@@ -41,13 +42,13 @@ class FourSquareAPIManager {
             
             guard let response = response as? HTTPURLResponse else {
                 
-                self.delegate?.gymsNotFound(reason: .noResponse)
+                self.delegate?.landmarkNotFound(reason: .noResponse)
                 
                 return
             }
             
             guard response.statusCode == 200 else {
-                self.delegate?.gymsNotFound(reason: .non200Response)
+                self.delegate?.landmarkNotFound(reason: .non200Response)
                 
                 return
             }
@@ -55,7 +56,7 @@ class FourSquareAPIManager {
             //HERE - response is NOT nil and IS 200
             
             guard let data = data else {
-                self.delegate?.gymsNotFound(reason: .noData)
+                self.delegate?.landmarkNotFound(reason: .noData)
                 
                 return
             }
@@ -65,38 +66,29 @@ class FourSquareAPIManager {
             let decoder = JSONDecoder()
             
             do {
-                let fourSquareResponse = try decoder.decode(FourSquareResponse.self, from: data)
+                let landmarkResponse = try decoder.decode(LandmarkResponse.self, from: data)
                 
                 //HERE - decoding was successful
                 
-                var gyms = [Gym]()
+                var landmarks = [Landmark]()
                 
-                for venue in fourSquareResponse.response.venues {
-                    let address = venue.location.formattedAddress.joined(separator: " ")
+                for landmark in landmarkResponse.businesses{
                     
-                    let iconPrefix = venue.categories.first?.icon.prefix
-                    let iconSuffix = venue.categories.first?.icon.suffix
                     
-                    var iconUrl: String? = nil
                     
-                    if let iconPrefix = iconPrefix, let iconSuffix = iconSuffix {
-                        iconUrl = "\(iconPrefix)44\(iconSuffix)"
-                    }
                     
-                    let gym = Gym(name: venue.name, address: address, iconUrl: iconUrl)
-                    
-                    gyms.append(gym)
+                    let landmark = Landmark(name: landmark.name,imageUrl: landmark.imageUrl)
+                    landmarks.append(landmark)
                 }
-                
+                print(landmarks)
                 //now what do we do with the gyms????
-                self.delegate?.gymsFound(gyms)
-                
+                self.delegate?.landmarkFound(landmarks)
                 
             } catch let error {
                 //if we get here, need to set a breakpoint and inspect the error to see where there is a mismatch between JSON and our Codable model structs
                 print(error.localizedDescription)
                 
-                self.delegate?.gymsNotFound(reason: .badData)
+                self.delegate?.landmarkNotFound(reason: .badData)
             }
         }
         
@@ -104,4 +96,3 @@ class FourSquareAPIManager {
         task.resume()
     }
 }
-*/

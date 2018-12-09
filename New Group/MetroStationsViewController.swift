@@ -17,7 +17,7 @@ class MetroStationsViewController: UITableViewController{
             tableView.reloadData()
         }
     }
-   
+   var landmarks = [Landmark]()
     override func viewDidLoad(){
         super.viewDidLoad()
         wmataapimanager.delegate = self as FetchStationsDelegate
@@ -27,6 +27,10 @@ class MetroStationsViewController: UITableViewController{
     
     private func fetchStation(){
         locationDetector.findLocation()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -42,14 +46,25 @@ class MetroStationsViewController: UITableViewController{
         let station = stations[indexPath.row]
         
         cell.StationLabel.text = station.name
-        cell.LaiLabel.text = String(station.Lat)
-        cell.LonLabel.text = String(station.Lon)
+        //cell.LaiLabel.text = String(station.Lat)
+        //cell.LonLabel.text = String(station.Lon)
         
         
         return cell
     }
-    
-}
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("you select: \(indexPath.row)")
+       
+        performSegue(withIdentifier: "LandmarksSegue", sender: stations[indexPath.row])
+      
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let row = sender as! Int
+            let destinationVC = segue.destination as! LandmarksViewController
+             destinationVC.station = stations[row]
+        
+    }
+    }
 extension MetroStationsViewController: LocationDetectorDelegate {
     
     func locationDetected(latitude: Double, longitude: Double) {

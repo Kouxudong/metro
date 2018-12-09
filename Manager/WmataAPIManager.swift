@@ -83,7 +83,7 @@ class WmataAPIManager {
                         iconUrl = "\(iconPrefix)44\(iconSuffix)"
                     }
                     */
-                    let station = Station(name: station.Name, Lat: station.Lat, Lon: station.Lon)
+                    let station = Station(name: station.Name)
                     
                     stations.append(station)
                 }
