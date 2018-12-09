@@ -19,6 +19,7 @@
 		3064263721BC55C7006890C4 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064263621BC55C7006890C4 /* Landmark.swift */; };
 		3064263921BC5823006890C4 /* LandmarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064263821BC5823006890C4 /* LandmarksTableViewCell.swift */; };
 		3064265921BD9354006890C4 /* LandmarkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064265821BD9353006890C4 /* LandmarkDetailViewController.swift */; };
+		3064265B21BDD6E0006890C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064265A21BDD6E0006890C4 /* Extension.swift */; };
 		3079B59421B0BACB00A60A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3079B59321B0BACB00A60A83 /* AppDelegate.swift */; };
 		3079B59921B0BACB00A60A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3079B59721B0BACB00A60A83 /* Main.storyboard */; };
 		3079B59B21B0BACC00A60A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3079B59A21B0BACC00A60A83 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		3064263621BC55C7006890C4 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		3064263821BC5823006890C4 /* LandmarksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksTableViewCell.swift; sourceTree = "<group>"; };
 		3064265821BD9353006890C4 /* LandmarkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LandmarkDetailViewController.swift; path = Controller/LandmarkDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		3064265A21BDD6E0006890C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		3079B59021B0BACB00A60A83 /* Metro Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3079B59321B0BACB00A60A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3079B59821B0BACB00A60A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				3079B59F21B0BACC00A60A83 /* Info.plist */,
 				3064261821B99638006890C4 /* StationsTableViewCell.swift */,
 				3064263821BC5823006890C4 /* LandmarksTableViewCell.swift */,
+				3064265A21BDD6E0006890C4 /* Extension.swift */,
 			);
 			path = "Metro Explorer";
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3064265B21BDD6E0006890C4 /* Extension.swift in Sources */,
 				3064263921BC5823006890C4 /* LandmarksTableViewCell.swift in Sources */,
 				3079B5EC21B0F50000A60A83 /* MetroStationsViewController.swift in Sources */,
 				3064262B21BADF5C006890C4 /*  LandmarkResponse.swift in Sources */,

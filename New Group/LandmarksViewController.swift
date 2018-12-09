@@ -42,10 +42,11 @@ class LandmarksViewController: UITableViewController {
         
         cell.LandmarkLabel.text = landmark.name
         
-       // if let iconUrlString = landmark.imageUrl, let url = URL(string: iconUrlString) {
-           // cell.LandmardsImage.load(url: url)
-      //  }
-        
+    /*   if let imgUrlString = landmark.imageUrl,
+        let url = URL(string: imgUrlString) {
+            cell.LandmarkImgLabel.load(url: url)
+       }
+       */
         return cell
     }
 }

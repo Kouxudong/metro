@@ -27,17 +27,17 @@ class FetchLandmarksManager {
         var urlComponents = URLComponents(string: "https://api.yelp.com/v3/businesses/search")!
         
         urlComponents.queryItems = [
-            
-            URLQueryItem(name: "query", value: "landmarks"),
-            URLQueryItem(name: "ll", value: "\(latitude), \(longitude)"),
+            URLQueryItem(name: "categories", value: "landmarks"),
+            URLQueryItem(name: "latitude", value: String(latitude)),
+            URLQueryItem(name: "longitude", value: String(longitude)),
         ]
         
         let url = urlComponents.url!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("Bearer W5yBocKSm1VFHOIB1zqj3Ovv0UNpN1_WM9jPScCoymBbdc6QDxhRfueAj4fdS7mT_J7jXwK4nyvt27r_gt8u3gDSkdsLyTQEfaU_dSxYinyG-aBF7n1wNQ3CWwMLXHYx", forHTTPHeaderField: "Authorization")
-      
+        request.addValue("Bearer W5yBocKSm1VFHOIB1zqj3Ovv0UNpN1_WM9jPScCoymBbdc6QDxhRfueAj4fdS7mT_J7jXwK4nyvt27r_gt8u3gDSkdsLyTQEfaU_dSxYinyG-aBF7n1wNQ3CWwMLXHYx", forHTTPHeaderField: "Authorization")
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             //PUT CODE HERE TO RUN UPON COMPLETION
             
@@ -49,6 +49,7 @@ class FetchLandmarksManager {
             }
             
             guard response.statusCode == 200 else {
+                print("response is nil or not 200")
                 self.delegate?.landmarkNotFound(reason: .non200Response)
                 
                 return
@@ -58,9 +59,10 @@ class FetchLandmarksManager {
             
             guard let data = data
                 else {
-                self.delegate?.landmarkNotFound(reason: .noData)
-                
-                return
+                    print("data is nil")
+                    self.delegate?.landmarkNotFound(reason: .noData)
+                    
+                    return
             }
             
             //HERE - data is NOT nil
@@ -68,15 +70,14 @@ class FetchLandmarksManager {
             let decoder = JSONDecoder()
             
             do {
+                print("start do")
                 let landmarkResponse = try decoder.decode(LandmarkResponse.self, from: data)
                 
                 
                 var landmarks = [Landmark]()
                 
                 for landmark in landmarkResponse.businesses{
-                    
-                    
-                    let landmark = Landmark(name: landmark.name,imageUrl: landmark.imageUrl)
+                    let landmark = Landmark(name: landmark.name)
                     landmarks.append(landmark)
                 }
                 print(landmarks)
@@ -84,6 +85,7 @@ class FetchLandmarksManager {
                 
             } catch let error {
                 //if we get here, need to set a breakpoint and inspect the error to see where there is a mismatch between JSON and our Codable model structs
+                print("codable failed - bad data format")
                 print(error.localizedDescription)
                 
                 self.delegate?.landmarkNotFound(reason: .badData)

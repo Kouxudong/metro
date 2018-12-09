@@ -10,5 +10,5 @@ import Foundation
 
 struct Landmark {
     let name:String
-    let imageUrl: URL
+   // let imageUrl: String
 }
