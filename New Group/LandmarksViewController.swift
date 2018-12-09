@@ -20,7 +20,10 @@ class LandmarksViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchLandmarks.delegate = self as? FetchLandMarksDelegate
+        fetchLandmarks.delegate = self
+        if let lon = station?.lon,let lat = station?.lat{
+            fetchLandmarks.fetchLandMarks(latitude: lat, longitude: lon)
+        }
     }
 
     // MARK: - Table view data source
@@ -33,7 +36,7 @@ class LandmarksViewController: UITableViewController {
         return landmarks.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LandmarksSegue", for: indexPath) as! LandmarksTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LandmarkDetailCell", for: indexPath) as! LandmarksTableViewCell
         
         let landmark = landmarks[indexPath.row]
         

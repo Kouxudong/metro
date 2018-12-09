@@ -103,7 +103,7 @@
                         </prototypes>
                     </tableView>
                     <connections>
-                        <segue destination="77o-9Y-c9T" kind="show" identifier="LandmarksSegue" id="eEy-g8-2hl"/>
+                        <segue destination="77o-9Y-c9T" kind="show" identifier="LandmarksSegue" id="4vW-oz-fzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTH-wD-F70" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fS8-UG-9rF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680.79999999999995" y="-146.17691154422789"/>
+            <point key="canvasLocation" x="-687" y="-125"/>
         </scene>
     </scenes>
 </document>

@@ -10,7 +10,8 @@ import Foundation
 
 struct Station {
     let name: String
-   
+    let lon: Double
+    let lat: Double
     
 }
  
