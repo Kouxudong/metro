@@ -49,6 +49,18 @@ class LandmarksViewController: UITableViewController {
        */
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("you select: \(indexPath.row)")
+        
+        performSegue(withIdentifier: "LandmarkDetailSegue", sender: indexPath.row)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let row = sender as! Int
+        let destinationVC = segue.destination as! LandmarkDetailViewController
+        //destinationVC.station = stations[row]
+        
+    }
 }
 
 extension LandmarksViewController: FetchLandMarksDelegate{
