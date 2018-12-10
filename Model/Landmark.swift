@@ -10,5 +10,7 @@ import Foundation
 
 struct Landmark {
     let name:String
-   // let imageUrl: String
+    let lon: Double
+    let lat: Double
+    // let imageUrl: String
 }
