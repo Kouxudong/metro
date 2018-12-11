@@ -19,7 +19,7 @@ struct Businesses: Codable {
     let id: String
     let alias: String
     let name: String
-    let imageUrl: URL
+    let imageUrl: String
     let isClosed: Bool
     let url: URL
     let reviewCount: Int

@@ -33,8 +33,16 @@ class DetailViewController: UIViewController {
        
         navigationItem.rightBarButtonItems = [addButton,addButton1]
        
+        do{
+            let imgUrlString = landmark?.imageUrl
+            if let url = URL(string: imgUrlString!) {
+                // let data = try Data(contentsOf: url)
+                LandmarkImage.load(url: url)
+            }
+            
+        }
         LandmarkNameLabel.text = landmark?.name
-       // LandmarkRatingLabel.text = landmark?.rating
+        LandmarkRatingLabel.text = "Rating: \((landmark?.rating) )"
         LandmarkAddressLabel.text = landmark?.address
        
         // Do any additional setup after loading the view.
@@ -51,9 +59,8 @@ class DetailViewController: UIViewController {
     }
     @IBAction func tapButton1(_ sender: Any){
         print("your tap1")
-        let workout = Landmark(name:(landmark?.name)!,address:(landmark?.address)!)
-        PersistenceManager.sharedInstance.saveWorkout(workout: workout)
-    }
+        let workout = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!)
+        PersistenceManager.sharedInstance.saveWorkout(workout: workout)    }
     
     /*
     // MARK: - Navigation

@@ -65,6 +65,7 @@
                     <navigationItem key="navigationItem" id="BXn-hB-Lzk"/>
                     <connections>
                         <segue destination="xbG-s1-Jd1" kind="show" identifier="stationsSegue" id="1es-YZ-Smx"/>
+                        <segue destination="h1m-pc-zSy" kind="show" identifier="FavoriteSegue" id="0N5-xw-2aX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -108,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTH-wD-F70" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287.19999999999999" y="-810.0449775112445"/>
+            <point key="canvasLocation" x="284" y="-211"/>
         </scene>
         <!--Landmarks View Controller-->
         <scene sceneID="kbu-qF-xZb">
@@ -173,13 +174,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahA-6d-oYE">
-                                <rect key="frame" x="136" y="335" width="86" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HV-br-KbW">
                                 <rect key="frame" x="16" y="408" width="343" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,6 +192,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahA-6d-oYE">
+                                <rect key="frame" x="0.0" y="335" width="352" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QrE-7X-PHf"/>
@@ -211,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5V-rF-5py" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="-779"/>
+            <point key="canvasLocation" x="1925.5999999999999" y="-779.46026986506752"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zZ6-jb-LJy">
@@ -232,4 +233,7 @@
             <point key="canvasLocation" x="-1460" y="-742.5787106446777"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0N5-xw-2aX"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -11,18 +11,24 @@ import UIKit
 class LandmarksViewController: UITableViewController {
     let workouts = PersistenceManager.sharedInstance.fetchWorkouts()
     let fetchLandmark = FetchLandmarksManager()
+    var fromFav: Bool = false
     var station : Station?
     var landmarks = [Landmark](){
         didSet{
             tableView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchLandmark.delegate = self
-        if let lon = station?.lon,let lat = station?.lat{
-            fetchLandmark.fetchLandMarks(latitude: lat, longitude: lon)
+        if fromFav == true {
+            landmarks = PersistenceManager.sharedInstance.fetchWorkouts()
+        }
+        else {
+            fetchLandmark.delegate = self
+            if let lon = station?.lon,let lat = station?.lat{
+                fetchLandmark.fetchLandMarks(latitude: lat, longitude: lon)
+            }
         }
     }
 
@@ -42,11 +48,14 @@ class LandmarksViewController: UITableViewController {
         
         cell.LandmarkLabel.text = landmark.name
         
-    /*   if let imgUrlString = landmark.imageUrl,
-        let url = URL(string: imgUrlString) {
-            cell.LandmarkImgLabel.load(url: url)
-       }
-       */
+        do{
+            let imgUrlString = landmark.imageUrl
+            if let url = URL(string: imgUrlString) {
+                // let data = try Data(contentsOf: url)
+                cell.LandmarkImgLabel.load(url: url)
+            }
+            
+        }
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

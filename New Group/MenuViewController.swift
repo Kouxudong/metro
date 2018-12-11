@@ -26,6 +26,14 @@ class MenuViewController: UIViewController {
     @IBAction func NearestPressed(_ sender: UIButton) {
         print("select pressed")
         performSegue(withIdentifier: "NearestStationsSegue", sender: self)    }
+    @IBAction func FavoritesPressed(_ sender: UIButton) {
+        print("select pressed")
+        performSegue(withIdentifier: "FavoriteSegue", sender: self)    }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as? LandmarksViewController
+        if segue.identifier == "FavoriteSegue"{
+            destinationVC?.fromFav = true
+        }
+    }
 }
