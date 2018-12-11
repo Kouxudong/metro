@@ -1,23 +1,16 @@
 //
-//  LandmarksDetailTableViewCell.swift
+//  DetailTableViewCell.swift
 //  Metro Explorer
 //
-//  Created by tester on 2018/12/9.
+//  Created by tester on 2018/12/10.
 //  Copyright © 2018 zkxd. All rights reserved.
 //
 
 import UIKit
 
-class LandmarksDetailTableViewCell: UITableViewCell {
+class DetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var LandmarkNameLabel: UILabel!
-    
-    @IBOutlet weak var LandmarkImageLabel: UIImageView!
-    
-    @IBOutlet weak var LandmarkRatingLabel: UILabel!
-    
-    @IBOutlet weak var LandmarkAddressLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

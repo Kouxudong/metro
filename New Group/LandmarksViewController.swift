@@ -57,9 +57,8 @@ class LandmarksViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let row = sender as! Int
-        let destinationVC = segue.destination as! LandmarkDetailViewController
+        let destinationVC = segue.destination as! DetailViewController
         destinationVC.landmark = landmarks[row]
-        
     }
 }
 

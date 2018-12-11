@@ -18,11 +18,10 @@
 		3064263521BC5563006890C4 /* LandmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064263421BC5563006890C4 /* LandmarksViewController.swift */; };
 		3064263721BC55C7006890C4 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064263621BC55C7006890C4 /* Landmark.swift */; };
 		3064263921BC5823006890C4 /* LandmarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064263821BC5823006890C4 /* LandmarksTableViewCell.swift */; };
-		3064265921BD9354006890C4 /* LandmarkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064265821BD9353006890C4 /* LandmarkDetailViewController.swift */; };
 		3064265B21BDD6E0006890C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064265A21BDD6E0006890C4 /* Extension.swift */; };
-		3064266D21BE1493006890C4 /* LandmarksDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064266C21BE1493006890C4 /* LandmarksDetailTableViewCell.swift */; };
 		3064267121BE162C006890C4 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267021BE162B006890C4 /* LandmarkDetail.swift */; };
-		3064267321BE3BE6006890C4 /* FetchLandmarkDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267221BE3BE6006890C4 /* FetchLandmarkDetailManager.swift */; };
+		3064267721BF3765006890C4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267621BF3765006890C4 /* DetailTableViewCell.swift */; };
+		3064267B21BF61D7006890C4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267A21BF61D7006890C4 /* DetailViewController.swift */; };
 		3079B59421B0BACB00A60A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3079B59321B0BACB00A60A83 /* AppDelegate.swift */; };
 		3079B59921B0BACB00A60A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3079B59721B0BACB00A60A83 /* Main.storyboard */; };
 		3079B59B21B0BACC00A60A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3079B59A21B0BACC00A60A83 /* Assets.xcassets */; };
@@ -44,11 +43,10 @@
 		3064263421BC5563006890C4 /* LandmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksViewController.swift; sourceTree = "<group>"; };
 		3064263621BC55C7006890C4 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		3064263821BC5823006890C4 /* LandmarksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksTableViewCell.swift; sourceTree = "<group>"; };
-		3064265821BD9353006890C4 /* LandmarkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LandmarkDetailViewController.swift; path = Controller/LandmarkDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		3064265A21BDD6E0006890C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		3064266C21BE1493006890C4 /* LandmarksDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3064267021BE162B006890C4 /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
-		3064267221BE3BE6006890C4 /* FetchLandmarkDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLandmarkDetailManager.swift; sourceTree = "<group>"; };
+		3064267621BF3765006890C4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		3064267A21BF61D7006890C4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3079B59021B0BACB00A60A83 /* Metro Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3079B59321B0BACB00A60A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3079B59821B0BACB00A60A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				306425F021B46F3E006890C4 /* WmataAPIManager.swift */,
 				3064262821BA366C006890C4 /* LocationDetector.swift */,
 				3064262E21BB401D006890C4 /* FetchLandmarksManager.swift */,
-				3064267221BE3BE6006890C4 /* FetchLandmarkDetailManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -134,7 +131,7 @@
 				3064261821B99638006890C4 /* StationsTableViewCell.swift */,
 				3064263821BC5823006890C4 /* LandmarksTableViewCell.swift */,
 				3064265A21BDD6E0006890C4 /* Extension.swift */,
-				3064266C21BE1493006890C4 /* LandmarksDetailTableViewCell.swift */,
+				3064267621BF3765006890C4 /* DetailTableViewCell.swift */,
 			);
 			path = "Metro Explorer";
 			sourceTree = "<group>";
@@ -146,7 +143,7 @@
 				3079B59321B0BACB00A60A83 /* AppDelegate.swift */,
 				3064260221B72040006890C4 /* MenuViewController.swift */,
 				3064263421BC5563006890C4 /* LandmarksViewController.swift */,
-				3064265821BD9353006890C4 /* LandmarkDetailViewController.swift */,
+				3064267A21BF61D7006890C4 /* DetailViewController.swift */,
 			);
 			name = Controller;
 			path = "New Group";
@@ -285,8 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3064266D21BE1493006890C4 /* LandmarksDetailTableViewCell.swift in Sources */,
 				3064265B21BDD6E0006890C4 /* Extension.swift in Sources */,
+				3064267B21BF61D7006890C4 /* DetailViewController.swift in Sources */,
+				3064267721BF3765006890C4 /* DetailTableViewCell.swift in Sources */,
 				3064263921BC5823006890C4 /* LandmarksTableViewCell.swift in Sources */,
 				3079B5EC21B0F50000A60A83 /* MetroStationsViewController.swift in Sources */,
 				3064262B21BADF5C006890C4 /*  LandmarkResponse.swift in Sources */,
@@ -297,9 +295,7 @@
 				3064262921BA366C006890C4 /* LocationDetector.swift in Sources */,
 				306425F421B46FA4006890C4 /* Station.swift in Sources */,
 				3064261921B99638006890C4 /* StationsTableViewCell.swift in Sources */,
-				3064267321BE3BE6006890C4 /* FetchLandmarkDetailManager.swift in Sources */,
 				3064262F21BB401D006890C4 /* FetchLandmarksManager.swift in Sources */,
-				3064265921BD9354006890C4 /* LandmarkDetailViewController.swift in Sources */,
 				306425F621B4C186006890C4 /* WmataResponse.swift in Sources */,
 				3064267121BE162C006890C4 /* LandmarkDetail.swift in Sources */,
 				3064263721BC55C7006890C4 /* Landmark.swift in Sources */,
