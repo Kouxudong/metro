@@ -9,7 +9,7 @@
 import UIKit
 
 class LandmarksViewController: UITableViewController {
-    
+    let workouts = PersistenceManager.sharedInstance.fetchWorkouts()
     let fetchLandmark = FetchLandmarksManager()
     var station : Station?
     var landmarks = [Landmark](){

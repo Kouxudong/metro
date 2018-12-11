@@ -22,6 +22,7 @@
 		3064267121BE162C006890C4 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267021BE162B006890C4 /* LandmarkDetail.swift */; };
 		3064267721BF3765006890C4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267621BF3765006890C4 /* DetailTableViewCell.swift */; };
 		3064267B21BF61D7006890C4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267A21BF61D7006890C4 /* DetailViewController.swift */; };
+		3064267D21BF74EE006890C4 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064267C21BF74EE006890C4 /* PersistenceManager.swift */; };
 		3079B59421B0BACB00A60A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3079B59321B0BACB00A60A83 /* AppDelegate.swift */; };
 		3079B59921B0BACB00A60A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3079B59721B0BACB00A60A83 /* Main.storyboard */; };
 		3079B59B21B0BACC00A60A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3079B59A21B0BACC00A60A83 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		3064267021BE162B006890C4 /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
 		3064267621BF3765006890C4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		3064267A21BF61D7006890C4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3064267C21BF74EE006890C4 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		3079B59021B0BACB00A60A83 /* Metro Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3079B59321B0BACB00A60A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3079B59821B0BACB00A60A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				306425F021B46F3E006890C4 /* WmataAPIManager.swift */,
 				3064262821BA366C006890C4 /* LocationDetector.swift */,
 				3064262E21BB401D006890C4 /* FetchLandmarksManager.swift */,
+				3064267C21BF74EE006890C4 /* PersistenceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				3064261921B99638006890C4 /* StationsTableViewCell.swift in Sources */,
 				3064262F21BB401D006890C4 /* FetchLandmarksManager.swift in Sources */,
 				306425F621B4C186006890C4 /* WmataResponse.swift in Sources */,
+				3064267D21BF74EE006890C4 /* PersistenceManager.swift in Sources */,
 				3064267121BE162C006890C4 /* LandmarkDetail.swift in Sources */,
 				3064263721BC55C7006890C4 /* Landmark.swift in Sources */,
 			);

@@ -19,8 +19,20 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var LandmarkAddressLabel: UILabel!
     @IBOutlet weak var LandmarkImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .action
+            , target: self, action: #selector(tapButton))
+        
+       //navigationItem.rightBarButtonItem = addButton
+        let addButton1 = UIBarButtonItem(barButtonSystemItem: .add
+            , target: self, action: #selector(tapButton1))
+       
+       
+        navigationItem.rightBarButtonItems = [addButton,addButton1]
+       
         LandmarkNameLabel.text = landmark?.name
        // LandmarkRatingLabel.text = landmark?.rating
         LandmarkAddressLabel.text = landmark?.address
@@ -28,7 +40,21 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func tapButton(_ sender: Any){
+        print("your tap")
+        let shareText = "share to others"
+        
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        
+        present(activityViewController, animated: true, completion: nil)
+        
+    }
+    @IBAction func tapButton1(_ sender: Any){
+        print("your tap1")
+        let workout = Landmark(name:(landmark?.name)!,address:(landmark?.address)!)
+        PersistenceManager.sharedInstance.saveWorkout(workout: workout)
+    }
+    
     /*
     // MARK: - Navigation
 

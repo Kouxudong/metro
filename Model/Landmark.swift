@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Landmark {
+struct Landmark:Codable {
     let name:String
    // let rating:Double
     let address:String
