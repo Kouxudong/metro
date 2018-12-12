@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//add button on the navigation bar 
 class DetailViewController: UIViewController {
     let name : String = ""
    // let rating:
@@ -26,11 +26,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .action
-            , target: self, action: #selector(tapButton))
+            , target: self, action: #selector(shareButton))
         
        //navigationItem.rightBarButtonItem = addButton
         let addButton1 = UIBarButtonItem(barButtonSystemItem: .add
-            , target: self, action: #selector(tapButton1))
+            , target: self, action: #selector(favoriteButton))
        
        
         navigationItem.rightBarButtonItems = [addButton,addButton1]
@@ -44,13 +44,13 @@ class DetailViewController: UIViewController {
             
         }
         LandmarkNameLabel.text = landmark?.name
-        LandmarkRatingLabel.text = "Rating: \((landmark?.rating) )"
+        LandmarkRatingLabel.text = "Rating: \(landmark?.rating ?? 0)"
         LandmarkAddressLabel.text = landmark?.address
        
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func tapButton(_ sender: Any){
+    @IBAction func shareButton(_ sender: Any){
         print("your tap")
         let shareText = "share to others"
         
@@ -59,13 +59,16 @@ class DetailViewController: UIViewController {
         present(activityViewController, animated: true, completion: nil)
         
     }
-    @IBAction func tapButton1(_ sender: Any){
+    @IBAction func favoriteButton(_ sender: Any){
         print("your tap1")
         let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!)
-        PersistenceManager.sharedInstance.saveFavorite(landmarks: landmarks)    }
+        PersistenceManager.sharedInstance.saveFavorite(landmarks: landmarks)
+        
+    }
     
     @IBAction func GetDirectionPressed(_ sender: UIButton) {
-        print("select pressed")
+         let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!)
+          //  let url = URL(string: "http://map.apple.com/?daddr=\(landmark?.lon)")
         
     }
     /*

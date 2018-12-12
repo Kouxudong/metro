@@ -8,14 +8,14 @@
 
 import UIKit
 import CoreLocation
-
+import MBProgressHUD
 class LandmarksViewController: UITableViewController {
     let locationdetector = LocationDetector()
     var distances = [Double]()
     var metrostation = [Station]()
     
 
-    //
+    
     
     let workouts = PersistenceManager.sharedInstance.fetchWorkouts()
     let fetchLandmark = FetchLandmarksManager()
@@ -33,6 +33,7 @@ class LandmarksViewController: UITableViewController {
         fetchLandmark.delegate = self
         locationdetector.delegate = self as? LocationDetectorDelegate
         locationdetector.findLocation()
+        MBProgressHUD.showAdded(to: self.view, animated:true)
         if fromFav == true {
             landmarks = PersistenceManager.sharedInstance.fetchWorkouts()
         }
@@ -45,7 +46,8 @@ class LandmarksViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
+//show all the information on the screen
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -82,18 +84,20 @@ class LandmarksViewController: UITableViewController {
         destinationVC.landmark = landmarks[row]
     }
 }
-
+// find the landmark
 extension LandmarksViewController: FetchLandMarksDelegate{
     
     func landmarkFound(_ landmarks: [Landmark]) {
-    
-        print("landmark found")
-        self.landmarks = landmarks
+        DispatchQueue.main.async{
+            print("landmark found")
+            self.landmarks = landmarks
+            MBProgressHUD.hide(for: self.view, animated: true)        }
+       
     }
     
     func landmarkNotFound(reason: FetchLandmarksManager.FailureReason) {
         DispatchQueue.main.async {
-            //MBProgressHUD.hide(for: self.view, animated: true)
+            MBProgressHUD.hide(for: self.view, animated: true)
             
             let alertController = UIAlertController(title: "Problem fetching landmarks", message: reason.rawValue, preferredStyle: .alert)
             

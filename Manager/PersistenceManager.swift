@@ -41,7 +41,7 @@ class PersistenceManager {
             return false
         }
     }
-
+//fetch all those data
     func fetchWorkouts() -> [Landmark] {
         let userDefaults = UserDefaults.standard
         

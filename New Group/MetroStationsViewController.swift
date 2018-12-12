@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import MBProgressHUD
+import MBProgressHUD
 import CoreLocation
 
 class MetroStationsViewController: UITableViewController{
@@ -26,6 +26,7 @@ class MetroStationsViewController: UITableViewController{
         wmataapimanager.delegate = self as FetchStationsDelegate
         locationDetector.delegate = self as LocationDetectorDelegate
         fetchStation()
+        MBProgressHUD.showAdded(to: self.view, animated:true)
     }
     
     private func fetchStation(){
@@ -82,7 +83,7 @@ extension MetroStationsViewController: LocationDetectorDelegate {
     func locationNotDetected() {
         print("no location found :(")
         DispatchQueue.main.async {
-          //  MBProgressHUD.hide(for: self.view, animated: true)
+            MBProgressHUD.hide(for: self.view, animated: true)
             
             //TODO: Show a AlertController with error
         }
@@ -90,7 +91,7 @@ extension MetroStationsViewController: LocationDetectorDelegate {
 }
 
 extension MetroStationsViewController: FetchStationsDelegate{
-   
+   //Using CLLocation to calculate the distance between current location and each station, and then sort them
     func findDistance(){
         let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
         
@@ -102,15 +103,15 @@ extension MetroStationsViewController: FetchStationsDelegate{
     }
    
     func stationsFound(_ stations: [Station]) {
-        
+        DispatchQueue.main.async {
             self.stations = stations
             self.findDistance()
+            MBProgressHUD.hide(for: self.view, animated: true)
     }
-    
+    }
     func stationsNotFound(reason: WmataAPIManager.FailureReason) {
         DispatchQueue.main.async {
-            //MBProgressHUD.hide(for: self.view, animated: true)
-            
+            MBProgressHUD.hide(for: self.view, animated: true)
             let alertController = UIAlertController(title: "Problem fetching landmark", message: reason.rawValue, preferredStyle: .alert)
             
             switch(reason) {

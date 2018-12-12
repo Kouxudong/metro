@@ -8,4 +8,5 @@ target 'Metro Explorer' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'SVProgressHUD'
+    pod 'MBProgressHUD', '1.1.0'
 end
