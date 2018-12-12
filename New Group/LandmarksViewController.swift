@@ -10,6 +10,12 @@ import UIKit
 import CoreLocation
 
 class LandmarksViewController: UITableViewController {
+    let locationdetector = LocationDetector()
+    var distances = [Double]()
+    var metrostation = [Station]()
+    
+
+    //
     
     let workouts = PersistenceManager.sharedInstance.fetchWorkouts()
     let fetchLandmark = FetchLandmarksManager()
@@ -20,10 +26,13 @@ class LandmarksViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchLandmark.delegate = self
+        locationdetector.delegate = self as? LocationDetectorDelegate
+        locationdetector.findLocation()
         if fromFav == true {
             landmarks = PersistenceManager.sharedInstance.fetchWorkouts()
         }

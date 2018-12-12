@@ -13,6 +13,7 @@ struct Landmark:Codable {
     let rating:Double
     let address:String
     let imageUrl: String
+    let id: String
    // let address:String
     // let lon: Double
     //let lat: Double

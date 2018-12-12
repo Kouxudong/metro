@@ -11,25 +11,40 @@ import Foundation
 class PersistenceManager {
     static let sharedInstance = PersistenceManager()
     
-    let workoutsKey = "workouts"
     
-    func saveWorkout(landmarks: Landmark) {
+    let favoritesKey = "favorites"
+    func saveFavorite(landmarks: Landmark) {
         let userDefaults = UserDefaults.standard
         
-        var workouts = fetchWorkouts()
-        workouts.append(landmarks)
+        var favorites = fetchWorkouts()
         
-        print(workouts)
+       if favorites.contains(where: { $0.id == "\(landmarks.id)"}){
+            if let index = favorites.firstIndex(where: {$0.id == "\(landmarks.id)"}){
+                favorites.remove(at: index)
+            }
+       }else{
+        favorites.append(landmarks)
+        }
         let encoder = JSONEncoder()
-        let encodedWorkouts = try? encoder.encode(workouts)
+        let encodedWorkouts = try? encoder.encode(favorites)
         
-        userDefaults.set(encodedWorkouts, forKey: workoutsKey)
+        userDefaults.set(encodedWorkouts, forKey: favoritesKey)
     }
     
+    func check(landmarks: Landmark) -> Bool{
+        let favorites = fetchWorkouts()
+        if favorites.contains(where: { $0.id == "\(landmarks.id)"}){
+            
+            return true
+        }else{
+            return false
+        }
+    }
+
     func fetchWorkouts() -> [Landmark] {
         let userDefaults = UserDefaults.standard
         
-        if let workoutData = userDefaults.data(forKey: workoutsKey), let workouts = try? JSONDecoder().decode([Landmark].self, from: workoutData) {
+        if let workoutData = userDefaults.data(forKey:favoritesKey), let workouts = try? JSONDecoder().decode([Landmark].self, from: workoutData) {
             //workoutData is non-nil and successfully decoded
             return workouts
         }

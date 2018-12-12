@@ -61,8 +61,8 @@ class DetailViewController: UIViewController {
     }
     @IBAction func tapButton1(_ sender: Any){
         print("your tap1")
-        let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!)
-        PersistenceManager.sharedInstance.saveWorkout(landmarks: landmarks)    }
+        let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!)
+        PersistenceManager.sharedInstance.saveFavorite(landmarks: landmarks)    }
     
     @IBAction func GetDirectionPressed(_ sender: UIButton) {
         print("select pressed")

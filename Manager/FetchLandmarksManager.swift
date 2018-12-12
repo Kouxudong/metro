@@ -77,7 +77,7 @@ class FetchLandmarksManager {
                 var landmarks = [Landmark]()
                 
                 for landmark in landmarkResponse.businesses{
-                    let landmark = Landmark(name: landmark.name,rating:landmark.rating, address: landmark.location.address1,imageUrl:landmark.imageUrl)
+                    let landmark = Landmark(name: landmark.name,rating:landmark.rating, address: landmark.location.address1,imageUrl:landmark.imageUrl,id:landmark.id)
                     landmarks.append(landmark)
                 }
                 //print(landmarks)
