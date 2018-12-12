@@ -17,7 +17,7 @@ class MetroStationsViewController: UITableViewController{
             tableView.reloadData()
         }
     }
-   var landmarks = [Landmark]()
+   
     override func viewDidLoad(){
         super.viewDidLoad()
         wmataapimanager.delegate = self as FetchStationsDelegate

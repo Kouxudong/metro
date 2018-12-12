@@ -13,11 +13,12 @@ class PersistenceManager {
     
     let workoutsKey = "workouts"
     
-    func saveWorkout(workout: Landmark) {
+    func saveWorkout(landmarks: Landmark) {
         let userDefaults = UserDefaults.standard
         
         var workouts = fetchWorkouts()
-        workouts.append(workout)
+        workouts.append(landmarks)
+        
         print(workouts)
         let encoder = JSONEncoder()
         let encodedWorkouts = try? encoder.encode(workouts)
@@ -32,6 +33,7 @@ class PersistenceManager {
             //workoutData is non-nil and successfully decoded
             return workouts
         }
+            
         else {
             return [Landmark]()
         }

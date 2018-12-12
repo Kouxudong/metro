@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LandmarksViewController: UITableViewController {
+    
     let workouts = PersistenceManager.sharedInstance.fetchWorkouts()
     let fetchLandmark = FetchLandmarksManager()
     var fromFav: Bool = false
@@ -18,6 +20,7 @@ class LandmarksViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()

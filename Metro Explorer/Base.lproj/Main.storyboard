@@ -33,7 +33,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="NearestPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rRP-8Z-FHG"/>
+                                    <action selector="NearestPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sv4-KC-LLm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4I-fP-eyf">
@@ -66,6 +66,7 @@
                     <connections>
                         <segue destination="xbG-s1-Jd1" kind="show" identifier="stationsSegue" id="1es-YZ-Smx"/>
                         <segue destination="h1m-pc-zSy" kind="show" identifier="FavoriteSegue" id="0N5-xw-2aX"/>
+                        <segue destination="h1m-pc-zSy" kind="show" identifier="NearestSegue" id="ecn-z1-iJu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -170,7 +171,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAn-Oo-s7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="-779"/>
+            <point key="canvasLocation" x="1081" y="-997"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="9RI-zz-FeB">
@@ -205,16 +206,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBq-rx-tQ0">
-                                <rect key="frame" x="75" y="509" width="134" height="78"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nn1-NQ-6RO">
+                                <rect key="frame" x="119" y="462" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="GetDirections"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="GetDirectionPressed:" destination="elA-ed-HEQ" eventType="touchUpInside" id="Jmd-lK-Oid"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QrE-7X-PHf"/>
                     </view>
                     <connections>
+                        <outlet property="GetDirectionButton" destination="Nn1-NQ-6RO" id="N8q-7J-8xu"/>
                         <outlet property="LandmarkAddressLabel" destination="9HV-br-KbW" id="y9O-st-WNr"/>
                         <outlet property="LandmarkImage" destination="Slr-0g-f1z" id="WZL-Sh-oXJ"/>
                         <outlet property="LandmarkNameLabel" destination="Fgs-7S-pNt" id="wPD-vk-1Ql"/>
@@ -245,6 +250,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0N5-xw-2aX"/>
+        <segue reference="ecn-z1-iJu"/>
     </inferredMetricsTieBreakers>
 </document>

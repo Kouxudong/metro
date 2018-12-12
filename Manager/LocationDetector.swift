@@ -50,7 +50,7 @@ extension LocationDetector: CLLocationManagerDelegate {
         //do something with the location
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
-            print("latitude=\(location.coordinate.latitude).longitude=\(location.coordinate.longitude)")
+            print("latitude1=\(location.coordinate.latitude).longitude=\(location.coordinate.longitude)")
             delegate?.locationDetected(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }

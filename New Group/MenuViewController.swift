@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -23,12 +23,24 @@ class MenuViewController: UIViewController {
         
     }
     
-    @IBAction func NearestPressed(_ sender: UIButton) {
-        print("select pressed")
-        performSegue(withIdentifier: "NearestStationsSegue", sender: self)    }
+   
+    
     @IBAction func FavoritesPressed(_ sender: UIButton) {
         print("select pressed")
-        performSegue(withIdentifier: "FavoriteSegue", sender: self)    }
+        performSegue(withIdentifier: "FavoriteSegue", sender: self)
+        
+    }
+   
+    @IBAction func NearestPressed(_ sender:UIButton){
+        
+        print("select pressed")
+      //  let location1 = CLLocation(latitude:3.0,longitude: 5.0)
+        //let location2 = CLLocation(latitude: 5.0, longitude: 5.0)
+        //let distanceInMeters = location1.distance(from: location2)
+        //print(distanceInMeters)
+        performSegue(withIdentifier: "NearestSegue", sender: self)
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as? LandmarksViewController
@@ -36,4 +48,6 @@ class MenuViewController: UIViewController {
             destinationVC?.fromFav = true
         }
     }
+    
+    
 }

@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     var landmark : Landmark?
     @IBOutlet weak var LandmarkNameLabel: UILabel!
     
+    @IBOutlet var GetDirectionButton: UIButton!
+   
     @IBOutlet weak var LandmarkRatingLabel: UILabel!
     
     @IBOutlet weak var LandmarkAddressLabel: UILabel!
@@ -59,9 +61,13 @@ class DetailViewController: UIViewController {
     }
     @IBAction func tapButton1(_ sender: Any){
         print("your tap1")
-        let workout = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!)
-        PersistenceManager.sharedInstance.saveWorkout(workout: workout)    }
+        let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!)
+        PersistenceManager.sharedInstance.saveWorkout(landmarks: landmarks)    }
     
+    @IBAction func GetDirectionPressed(_ sender: UIButton) {
+        print("select pressed")
+        
+    }
     /*
     // MARK: - Navigation
 
