@@ -13,6 +13,7 @@ class PersistenceManager {
     
     
     let favoritesKey = "favorites"
+    //if landmarks already exist remove, otherwise add
     func saveFavorite(landmarks: Landmark) {
         let userDefaults = UserDefaults.standard
         

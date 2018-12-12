@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreLocation
-
+//get current location
 protocol LocationDetectorDelegate {
     func locationDetected(latitude: Double, longitude: Double)
     func locationNotDetected()
@@ -24,7 +24,7 @@ class LocationDetector: NSObject {
         
         locationManager.delegate = self as CLLocationManagerDelegate
     }
-    
+//find or not find
 func findLocation() {
     let permissionStatus = CLLocationManager.authorizationStatus()
     

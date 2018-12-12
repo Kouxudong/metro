@@ -12,6 +12,6 @@ struct Station {
     let name: String
     let lon: Double
     let lat: Double
-    
+    var stationDistance: Double
 }
  

@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
         
     }
     
-    
+    //button pressed
     @IBAction func SelectPressed(_ sender: UIButton) {
         print("select pressed")
         performSegue(withIdentifier: "stationsSegue", sender: self)
@@ -33,12 +33,9 @@ class MenuViewController: UIViewController {
    
     @IBAction func NearestPressed(_ sender:UIButton){
         
-        print("select pressed")
-      //  let location1 = CLLocation(latitude:3.0,longitude: 5.0)
-        //let location2 = CLLocation(latitude: 5.0, longitude: 5.0)
-        //let distanceInMeters = location1.distance(from: location2)
-        //print(distanceInMeters)
-        performSegue(withIdentifier: "NearestSegue", sender: self)
+        print("nearest pressed")
+        
+        performSegue(withIdentifier: "stationsSegue", sender: self)
         
     }
     

@@ -12,7 +12,7 @@ protocol FetchLandMarksDelegate {
     func landmarkFound(_ landmarks: [Landmark])
     func landmarkNotFound(reason:FetchLandmarksManager.FailureReason)
 }
-
+//fetch landmark data by passing several parameters
 class FetchLandmarksManager {
     
     enum FailureReason: String {
@@ -68,7 +68,7 @@ class FetchLandmarksManager {
             //HERE - data is NOT nil
             
             let decoder = JSONDecoder()
-            
+  // get all those information
             do {
                 print("start do")
                 let landmarkResponse = try decoder.decode(LandmarkResponse.self, from: data)

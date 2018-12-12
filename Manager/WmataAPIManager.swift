@@ -12,7 +12,7 @@ protocol FetchStationsDelegate {
     func stationsFound(_ stations: [Station])
     func stationsNotFound(reason: WmataAPIManager.FailureReason)
 }
-
+//fetch the metro station data by passing url key and longitude, latitude
 class WmataAPIManager {
     
     enum FailureReason: String {
@@ -83,7 +83,7 @@ class WmataAPIManager {
                         iconUrl = "\(iconPrefix)44\(iconSuffix)"
                     }
                     */
-                    let station = Station(name: station.Name, lon: station.Lon, lat:station.Lat)
+                    let station = Station(name: station.Name, lon: station.Lon, lat:station.Lat,stationDistance:0)
                     
                     stations.append(station)
                 }

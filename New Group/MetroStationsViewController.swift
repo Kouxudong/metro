@@ -8,10 +8,13 @@
 
 import UIKit
 //import MBProgressHUD
+import CoreLocation
 
 class MetroStationsViewController: UITableViewController{
     let wmataapimanager = WmataAPIManager()
     let locationDetector = LocationDetector()
+    var userLongitude = 1.0
+    var userLatitude = 1.0
     var stations = [Station](){
         didSet{
             tableView.reloadData()
@@ -28,10 +31,11 @@ class MetroStationsViewController: UITableViewController{
     private func fetchStation(){
         locationDetector.findLocation()
     }
-    
+ // show all the information we need on screen
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -52,6 +56,7 @@ class MetroStationsViewController: UITableViewController{
         
         return cell
     }
+    //Using segue to pass data to next viewcontroller
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("you select: \(indexPath.row)")
        
@@ -70,7 +75,8 @@ extension MetroStationsViewController: LocationDetectorDelegate {
     func locationDetected(latitude: Double, longitude: Double) {
         print("found")
         wmataapimanager.fetchStations(longitude: longitude, latitude: latitude)
-        
+        userLatitude = latitude
+        userLongitude = longitude
     }
     
     func locationNotDetected() {
@@ -82,11 +88,23 @@ extension MetroStationsViewController: LocationDetectorDelegate {
         }
     }
 }
+
 extension MetroStationsViewController: FetchStationsDelegate{
    
-    
+    func findDistance(){
+        let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+        
+        for i in 0..<stations.count{
+            let stationsLocation = CLLocation(latitude: stations[i].lat, longitude: stations[i].lon)
+            stations[i].stationDistance = userLocation.distance(from: stationsLocation)
+        }
+        stations = stations.sorted(by: { $0.stationDistance <= $1.stationDistance})
+    }
+   
     func stationsFound(_ stations: [Station]) {
-        self.stations = stations
+        
+            self.stations = stations
+            self.findDistance()
     }
     
     func stationsNotFound(reason: WmataAPIManager.FailureReason) {
