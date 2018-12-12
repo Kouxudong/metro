@@ -61,15 +61,16 @@ class DetailViewController: UIViewController {
     }
     @IBAction func favoriteButton(_ sender: Any){
         print("your tap1")
-        let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!)
+        let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!,lon:(landmark?.lon)!,lat:(landmark?.lat)!)
         PersistenceManager.sharedInstance.saveFavorite(landmarks: landmarks)
         
     }
     
     @IBAction func GetDirectionPressed(_ sender: UIButton) {
-         let landmarks = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!)
-          //  let url = URL(string: "http://map.apple.com/?daddr=\(landmark?.lon)")
-        
+        _ = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!,lon:(landmark?.lon)!,lat:(landmark?.lat)!)
+        if let url = URL(string: "http://map.apple.com/?daddr=\(landmark?.lon ?? 0),\(landmark?.lat ?? 0)&dirflg=r"){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     /*
     // MARK: - Navigation

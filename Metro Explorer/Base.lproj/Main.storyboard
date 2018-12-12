@@ -207,9 +207,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nn1-NQ-6RO">
-                                <rect key="frame" x="129" y="499" width="46" height="30"/>
+                                <rect key="frame" x="121" y="499" width="115" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Direction"/>
                                 <connections>
                                     <action selector="GetDirectionPressed:" destination="elA-ed-HEQ" eventType="touchUpInside" id="Jmd-lK-Oid"/>
                                 </connections>
