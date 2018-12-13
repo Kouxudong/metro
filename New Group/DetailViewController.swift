@@ -67,11 +67,18 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func GetDirectionPressed(_ sender: UIButton) {
-        _ = Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!,lon:(landmark?.lon)!,lat:(landmark?.lat)!)
-        if let url = URL(string: "http://map.apple.com/?daddr=\(landmark?.lon ?? 0),\(landmark?.lat ?? 0)&dirflg=r"){
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        //_= Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!,lon:(landmark?.lon)!,lat:(landmark?.lat)!)
+          let url = NSURL(string: "http://maps.apple.com/?daddr=\(landmark?.lon),\(landmark?.lat)&t=h&dirflg=r")!
+        
+        let find = UIApplication.shared.canOpenURL(url as URL)
+        if find{
+            print("good")
+               
+            UIApplication.shared.open(url as URL)
         }
+        
     }
+  
     /*
     // MARK: - Navigation
 

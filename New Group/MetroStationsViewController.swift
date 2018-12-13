@@ -98,8 +98,10 @@ extension MetroStationsViewController: FetchStationsDelegate{
         for i in 0..<stations.count{
             let stationsLocation = CLLocation(latitude: stations[i].lat, longitude: stations[i].lon)
             stations[i].stationDistance = userLocation.distance(from: stationsLocation)
+            print(stations[i].stationDistance)
         }
         stations = stations.sorted(by: { $0.stationDistance <= $1.stationDistance})
+        
     }
    
     func stationsFound(_ stations: [Station]) {

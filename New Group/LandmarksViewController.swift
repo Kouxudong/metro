@@ -44,7 +44,6 @@ class LandmarksViewController: UITableViewController {
             }
         }
     }
-
     // MARK: - Table view data source
     
 //show all the information on the screen
