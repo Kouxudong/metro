@@ -68,15 +68,21 @@ class DetailViewController: UIViewController {
     
     @IBAction func GetDirectionPressed(_ sender: UIButton) {
         //_= Landmark(name:(landmark?.name)!,rating:(landmark?.rating)!, address:(landmark?.address)!,imageUrl:(landmark?.imageUrl)!,id: (landmark?.id)!,lon:(landmark?.lon)!,lat:(landmark?.lat)!)
-          let url = NSURL(string: "http://maps.apple.com/?daddr=\(landmark?.lon),\(landmark?.lat)&t=h&dirflg=r")!
+         /* let url = NSURL(string: "http://maps.apple.com/?daddr=\(landmark?.lon),\(landmark?.lat)&t=h&dirflg=r")!
         
         let find = UIApplication.shared.canOpenURL(url as URL)
         if find{
             print("good")
                
             UIApplication.shared.open(url as URL)
-        }
+        }*/
+        let daddr = landmark!.address.replacingOccurrences(of: " ", with: "+")
         
+        let url = "http://maps.apple.com/t=r&daddr=\(daddr)"
+        guard let mapUrl = URL(string: url) else {
+            return
+        }
+        UIApplication.shared.open(mapUrl, options: [:], completionHandler: nil)
     }
   
     /*

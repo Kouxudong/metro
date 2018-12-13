@@ -67,7 +67,7 @@ class LandmarksViewController: UITableViewController {
                 // let data = try Data(contentsOf: url)
                 cell.LandmarkImgLabel.load(url: url)
             }
-            
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
         return cell
     }
